@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const authRoutes = require('./routes/authRoutes');
 const productsRoutes = require('./routes/productsRoutes');
@@ -12,7 +11,8 @@ const app = express();
 app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+// Les images produits sont hébergées sur Cloudinary (voir uploadMiddleware.js),
+// plus besoin de servir un dossier /uploads local.
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 app.get('/api/wilayas', (req, res) => res.json(wilayas));

@@ -53,7 +53,7 @@ async function createProduct(req, res, next) {
       price, category, is_featured, stock_status,
     } = req.body;
 
-    const image_url = req.file ? `/uploads/${req.file.filename}` : null;
+    const image_url = req.file ? req.file.path : null;
 
     const [result] = await pool.query(
       `INSERT INTO products
@@ -89,7 +89,7 @@ async function updateProduct(req, res, next) {
       price, category, is_featured, stock_status,
     } = req.body;
 
-    const image_url = req.file ? `/uploads/${req.file.filename}` : existing.image_url;
+    const image_url = req.file ? req.file.path : existing.image_url;
 
     await pool.query(
       `UPDATE products SET
