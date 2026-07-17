@@ -22,6 +22,7 @@ async function migrate() {
     database: process.env.DB_NAME || 'doudis_beauty',
     multipleStatements: true,
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined,
+    family: 4,
   });
 
   try {

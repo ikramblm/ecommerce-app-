@@ -13,6 +13,9 @@ const pool = mysql.createPool({
   timezone: 'Z',
   // Les fournisseurs managés (ex: Aiven) exigent une connexion TLS.
   ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined,
+  // Force IPv4 : certains réseaux (ex: sortie Render) ne routent pas bien
+  // l'IPv6, ce qui provoque des ETIMEDOUT sur les hôtes qui publient AAAA.
+  family: 4,
 });
 
 module.exports = pool;
