@@ -11,6 +11,8 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   timezone: 'Z',
+  // Les fournisseurs managés (ex: Aiven) exigent une connexion TLS.
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined,
 });
 
 module.exports = pool;

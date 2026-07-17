@@ -30,11 +30,15 @@ git push -u origin main
 
 ## 2. Base de données MySQL (Aiven)
 
-1. Crée un compte sur [aiven.io](https://aiven.io/free-mysql-database), lance un service **MySQL** free tier.
-2. Une fois créé, note **Host**, **Port**, **User** (`avnadmin`), **Password**, et le nom de la base par défaut.
-3. Connecte-toi (via l'onglet "Query" d'Aiven, ou avec un client MySQL) et exécute le contenu de `database/schema.sql`.
-   Si le nom de base par défaut d'Aiven diffère de `doudis_beauty`, adapte la ligne
-   `CREATE DATABASE`/`USE` du script pour utiliser le nom fourni par Aiven.
+1. Crée un compte sur [aiven.io](https://aiven.io/free-mysql-database), crée un service **MySQL**
+   sur le plan **Free**.
+2. Une fois le service "Running", note **Host**, **Port**, **User** (`avnadmin`), **Password**,
+   et **Database name** (généralement `defaultdb`) dans l'onglet "Connection information".
+   La connexion exige TLS (`SSL mode: REQUIRED`).
+3. Aiven ne fournit pas de console SQL pour MySQL : le schéma (`database/schema.sql`) sera
+   appliqué automatiquement après le déploiement du backend, via `npm run migrate`
+   (voir étape 4.4). Utilise `DB_NAME=defaultdb` (ou le nom donné par Aiven) plutôt que
+   `doudis_beauty` — le script de migration s'adapte à la base déjà sélectionnée.
 
 ## 3. Images (Cloudinary)
 
@@ -51,8 +55,11 @@ git push -u origin main
    `ADMIN_PASSWORD` (identifiants admin à créer), `CLOUDINARY_CLOUD_NAME`,
    `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. Laisse `FRONTEND_URL` vide pour l'instant.
 3. Déploie. Une fois en ligne, note l'URL Render (ex: `https://ecommerce-app-api.onrender.com`).
-4. Lance le seed une seule fois pour créer le compte admin : dans Render, onglet "Shell"
-   du service, exécute `npm run seed`.
+4. Dans Render, onglet "Shell" du service, exécute dans l'ordre :
+   ```bash
+   npm run migrate   # crée les tables (admins, products, orders)
+   npm run seed       # crée l'admin + produits de démo
+   ```
 
 ## 5. Frontend (Cloudflare Pages)
 
