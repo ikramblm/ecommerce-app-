@@ -32,7 +32,11 @@ async function migrate() {
   }
 }
 
-migrate().catch((err) => {
-  console.error('Erreur lors de la migration:', err);
-  process.exit(1);
-});
+module.exports = migrate;
+
+if (require.main === module) {
+  migrate().catch((err) => {
+    console.error('Erreur lors de la migration:', err);
+    process.exit(1);
+  });
+}

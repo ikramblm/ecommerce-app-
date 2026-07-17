@@ -113,11 +113,16 @@ async function seed() {
     console.log('Seed terminé.');
   } finally {
     conn.release();
-    await pool.end();
   }
 }
 
-seed().catch((err) => {
-  console.error('Erreur lors du seed:', err);
-  process.exit(1);
-});
+module.exports = seed;
+
+if (require.main === module) {
+  seed()
+    .then(() => pool.end())
+    .catch((err) => {
+      console.error('Erreur lors du seed:', err);
+      process.exit(1);
+    });
+}

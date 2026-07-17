@@ -55,11 +55,11 @@ git push -u origin main
    `ADMIN_PASSWORD` (identifiants admin à créer), `CLOUDINARY_CLOUD_NAME`,
    `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. Laisse `FRONTEND_URL` vide pour l'instant.
 3. Déploie. Une fois en ligne, note l'URL Render (ex: `https://ecommerce-app-api.onrender.com`).
-4. Dans Render, onglet "Shell" du service, exécute dans l'ordre :
-   ```bash
-   npm run migrate   # crée les tables (admins, products, orders)
-   npm run seed       # crée l'admin + produits de démo
-   ```
+4. Le plan free de Render n'a pas d'accès Shell — `server.js` applique automatiquement
+   le schéma (`migrate`) et insère l'admin + les produits de démo (`seed`) à chaque
+   démarrage du service. Les deux opérations sont idempotentes (sûres à rejouer).
+   Vérifie les logs du service pour confirmer `Schéma appliqué avec succès.` et
+   `Admin créé: ...`.
 
 ## 5. Frontend (Cloudflare Pages)
 
