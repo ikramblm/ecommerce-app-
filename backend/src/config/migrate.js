@@ -10,12 +10,13 @@ async function migrate() {
   const schemaPath = path.join(__dirname, '..', '..', '..', 'database', 'schema.sql');
   let sql = fs.readFileSync(schemaPath, 'utf8');
 
-  // On se connecte déjà à la base fournie par DB_NAME (ex: defaultdb sur Aiven),
-  // donc on retire les lignes CREATE DATABASE / USE du script.
+  // On se connecte déjà à la base fournie par DB_NAME (ex: defaultdb sur Aiven,
+  // ou le nom généré par Clever Cloud), donc on retire l'instruction
+  // CREATE DATABASE (qui peut s'étaler sur plusieurs lignes, ex: la clause
+  // CHARACTER SET/COLLATE sur la ligne suivante) ainsi que le USE du script.
   sql = sql
-    .split('\n')
-    .filter((line) => !/^\s*CREATE DATABASE/i.test(line) && !/^\s*USE\s+\w+;/i.test(line))
-    .join('\n');
+    .replace(/CREATE DATABASE[\s\S]*?;/i, '')
+    .replace(/^\s*USE\s+\w+;\s*$/im, '');
 
   const connection = await mysql.createConnection({
     host: process.env.DB_HOST || 'localhost',
