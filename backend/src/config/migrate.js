@@ -1,7 +1,10 @@
 require('dotenv').config();
+const dns = require('dns');
 const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
+
+dns.setDefaultResultOrder('ipv4first');
 
 async function migrate() {
   const schemaPath = path.join(__dirname, '..', '..', '..', 'database', 'schema.sql');
@@ -22,7 +25,6 @@ async function migrate() {
     database: process.env.DB_NAME || 'doudis_beauty',
     multipleStatements: true,
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined,
-    family: 4,
   });
 
   try {
