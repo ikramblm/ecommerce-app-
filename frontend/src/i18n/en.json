@@ -1,0 +1,142 @@
+{
+  "brand": "Doudis Beauty",
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "admin": "Admin area"
+  },
+  "hero": {
+    "title": "Reveal your natural glow",
+    "subtitle": "Quality makeup and skincare, delivered all over Algeria.",
+    "cta": "Discover products"
+  },
+  "featured": {
+    "title": "Featured products",
+    "subtitle": "Our current selection"
+  },
+  "features": {
+    "original": { "title": "100% Original Products", "desc": "All our products are authentic, never counterfeit." },
+    "delivery": { "title": "Fast delivery", "desc": "Delivery to all 58 wilayas within 1 to 5 days." },
+    "cod": { "title": "Cash on delivery", "desc": "Order with confidence and pay upon receipt." },
+    "pickup": { "title": "Pickup point", "desc": "Collect your parcel from a partner delivery agency near you." }
+  },
+  "categories": {
+    "title": "Categories",
+    "makeupDesc": "Lipsticks, foundations, palettes and more",
+    "skincareDesc": "Creams, serums and facial care"
+  },
+  "products": {
+    "title": "Our products",
+    "filterCategory": "Category",
+    "allCategories": "All categories",
+    "categoryMakeup": "Makeup",
+    "categorySkincare": "Skincare",
+    "filterPrice": "Price",
+    "minPrice": "Min price",
+    "maxPrice": "Max price",
+    "apply": "Filter",
+    "reset": "Reset",
+    "empty": "No products found.",
+    "loading": "Loading products...",
+    "viewDetails": "View product",
+    "da": "DZD"
+  },
+  "product": {
+    "category": "Category",
+    "price": "Price",
+    "requestButton": "Request this product",
+    "description": "Description",
+    "backToProducts": "Back to products",
+    "outOfStock": "Out of stock"
+  },
+  "orderForm": {
+    "title": "Order request",
+    "productSummary": "Ordered product",
+    "quantity": "Quantity",
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "phoneHint": "Algerian format: 05/06/07 followed by 8 digits",
+    "email": "Email",
+    "wilaya": "Wilaya",
+    "chooseWilaya": "Choose a wilaya",
+    "address": "Full address",
+    "paymentType": "Payment type",
+    "paymentCod": "Cash on delivery (COD)",
+    "paymentBank": "Bank transfer",
+    "paymentCcp": "CCP",
+    "deliveryType": "Delivery type",
+    "deliveryHome": "Home delivery",
+    "deliveryPickup": "Pickup at store",
+    "submit": "Send request",
+    "submitting": "Sending...",
+    "success": "Thank you, your request has been sent. We will contact you soon.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "close": "Close"
+  },
+  "errors": {
+    "required": "This field is required.",
+    "invalidEmail": "Invalid email address.",
+    "invalidPhone": "Invalid Algerian phone number.",
+    "minLength": "This field is too short."
+  },
+  "footer": {
+    "tagline": "Your beauty, our passion.",
+    "location": "100% online store — Delivery all over Algeria",
+    "rights": "All rights reserved.",
+    "contactTitle": "Contact"
+  },
+  "admin": {
+    "loginTitle": "Admin login",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log in",
+    "loginError": "Incorrect email or password.",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "tabProducts": "Products",
+    "tabOrders": "Order requests",
+    "addProduct": "Add product",
+    "editProduct": "Edit product",
+    "deleteProduct": "Delete",
+    "confirmDelete": "Confirm deletion of this product?",
+    "save": "Save",
+    "cancel": "Cancel",
+    "titleFr": "Title (French)",
+    "titleEn": "Title (English)",
+    "titleAr": "Title (Arabic)",
+    "descFr": "Description (French)",
+    "descEn": "Description (English)",
+    "descAr": "Description (Arabic)",
+    "price": "Price (DZD)",
+    "category": "Category",
+    "image": "Product image",
+    "featured": "Featured product",
+    "stock": "Stock status",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "ordersTable": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "wilaya": "Wilaya",
+      "address": "Address",
+      "payment": "Payment",
+      "delivery": "Delivery",
+      "product": "Product",
+      "date": "Date",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "pending": "Pending",
+      "processed": "Processed",
+      "cancelled": "Cancelled"
+    },
+    "markProcessed": "Mark as processed",
+    "markCancelled": "Mark as cancelled",
+    "noProducts": "No products yet.",
+    "noOrders": "No order requests yet."
+  }
+}

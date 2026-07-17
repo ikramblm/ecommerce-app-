@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tableau de bord — Doudis Beauty</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3a89c'/%3E%3Cstop offset='45%25' stop-color='%23c97b6d'/%3E%3Cstop offset='100%25' stop-color='%23a8554a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='white' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/adminDashboard.js"></script>
+</head>
+<body class="bg-rose-50 text-gray-800">
+  <header class="bg-white border-b border-rose-100 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="logo-badge logo-badge--sm"><span class="logo-badge__mark">d</span></div>
+        <span class="font-bold text-rose-600" data-i18n="brand"></span>
+        <span class="text-gray-400">/</span>
+        <span class="text-gray-600 text-sm" data-i18n="admin.dashboard"></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex rounded-full overflow-hidden border border-rose-200 text-xs font-semibold">
+          <button data-lang-btn="fr" class="px-2.5 py-1.5">FR</button>
+          <button data-lang-btn="en" class="px-2.5 py-1.5">EN</button>
+          <button data-lang-btn="ar" class="px-2.5 py-1.5">AR</button>
+        </div>
+        <button id="logout-btn" class="text-sm font-semibold text-rose-600 border border-rose-200 rounded-full px-4 py-1.5" data-i18n="admin.logout"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex gap-2 mb-6">
+      <button id="tab-products-btn" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold" data-i18n="admin.tabProducts"></button>
+      <button id="tab-orders-btn" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold" data-i18n="admin.tabOrders"></button>
+    </div>
+
+    <!-- Products tab -->
+    <section id="tab-products">
+      <div class="flex justify-end mb-4">
+        <button id="add-product-btn" class="bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-4 py-2 rounded-lg" data-i18n="admin.addProduct"></button>
+      </div>
+      <div id="products-list" class="grid gap-4"></div>
+    </section>
+
+    <!-- Orders tab -->
+    <section id="tab-orders" class="hidden">
+      <div class="overflow-x-auto bg-white rounded-xl border border-rose-100">
+        <table class="min-w-full text-sm">
+          <thead class="bg-rose-50 text-rose-700">
+            <tr id="orders-head"></tr>
+          </thead>
+          <tbody id="orders-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product form modal -->
+  <div id="product-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-start justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl my-8">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-rose-100">
+        <h2 id="product-modal-title" class="font-bold text-lg text-rose-700"></h2>
+        <button id="product-modal-close" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+      </div>
+      <form id="product-form" class="px-6 py-5 grid md:grid-cols-2 gap-4">
+        <input type="hidden" name="id" />
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.titleFr"></label>
+          <input type="text" name="title_fr" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.titleEn"></label>
+          <input type="text" name="title_en" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.titleAr"></label>
+          <input type="text" name="title_ar" required dir="rtl" class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.descFr"></label>
+          <textarea name="description_fr" rows="2" class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.descEn"></label>
+          <textarea name="description_en" rows="2" class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.descAr"></label>
+          <textarea name="description_ar" rows="2" dir="rtl" class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.price"></label>
+          <input type="number" name="price" min="0" step="0.01" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.category"></label>
+          <select name="category" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm">
+            <option value="maquillage" data-i18n="products.categoryMakeup"></option>
+            <option value="soins" data-i18n="products.categorySkincare"></option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.image"></label>
+          <input type="file" name="image" accept="image/png,image/jpeg,image/webp" class="w-full text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.stock"></label>
+          <select name="stock_status" class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm">
+            <option value="in_stock" data-i18n="admin.inStock"></option>
+            <option value="out_of_stock" data-i18n="admin.outOfStock"></option>
+          </select>
+        </div>
+
+        <label class="flex items-center gap-2 md:col-span-2 text-sm">
+          <input type="checkbox" name="is_featured" class="rounded border-rose-300" />
+          <span data-i18n="admin.featured"></span>
+        </label>
+
+        <div id="product-form-error" class="hidden md:col-span-2 text-red-600 text-sm"></div>
+
+        <div class="md:col-span-2 flex justify-end gap-3 pt-2">
+          <button type="button" id="product-form-cancel" class="px-4 py-2 rounded-lg border border-rose-200 text-sm font-semibold" data-i18n="admin.cancel"></button>
+          <button type="submit" class="px-5 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold" data-i18n="admin.save"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion admin — Doudis Beauty</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3a89c'/%3E%3Cstop offset='45%25' stop-color='%23c97b6d'/%3E%3Cstop offset='100%25' stop-color='%23a8554a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='white' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/adminLogin.js"></script>
+</head>
+<body class="bg-rose-50 text-gray-800 min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-sm">
+    <div class="flex justify-center mb-6">
+      <div class="logo-badge logo-badge--lg shadow-lg">
+        <span class="logo-badge__mark">doudi's beauty</span>
+        <span class="logo-badge__tagline">Skincare | Makeup | Aesthetics</span>
+      </div>
+    </div>
+
+    <form id="login-form" class="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 space-y-4">
+      <h2 class="font-bold text-lg text-center text-gray-700" data-i18n="admin.loginTitle"></h2>
+
+      <div>
+        <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.email"></label>
+        <input type="email" name="email" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-gray-500 mb-1" data-i18n="admin.password"></label>
+        <input type="password" name="password" required class="w-full border border-rose-200 rounded-lg px-3 py-2 text-sm" />
+      </div>
+
+      <div id="login-error" class="hidden text-red-600 text-sm"></div>
+
+      <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-2.5 rounded-full" data-i18n="admin.login"></button>
+    </form>
+  </div>
+</body>
+</html>

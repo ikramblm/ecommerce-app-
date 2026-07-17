@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produits — Doudis Beauty</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3a89c'/%3E%3Cstop offset='45%25' stop-color='%23c97b6d'/%3E%3Cstop offset='100%25' stop-color='%23a8554a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='white' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/produits.js"></script>
+</head>
+<body class="bg-rose-50 text-gray-800">
+  <div id="header"></div>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-gray-900 mb-8" data-i18n="products.title"></h1>
+
+    <div class="flex flex-wrap gap-4 items-end border-b border-gray-200 pb-6 mb-8">
+      <div>
+        <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="products.filterCategory"></label>
+        <select id="filter-category" class="border border-gray-300 px-3 py-2 text-sm min-w-[10rem]">
+          <option value="" data-i18n="products.allCategories"></option>
+          <option value="maquillage" data-i18n="products.categoryMakeup"></option>
+          <option value="soins" data-i18n="products.categorySkincare"></option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="products.minPrice"></label>
+        <input id="filter-min" type="number" min="0" class="border border-gray-300 px-3 py-2 text-sm w-28" />
+      </div>
+      <div>
+        <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="products.maxPrice"></label>
+        <input id="filter-max" type="number" min="0" class="border border-gray-300 px-3 py-2 text-sm w-28" />
+      </div>
+      <button id="filter-apply" class="bg-rose-600 hover:bg-gray-900 text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 transition-colors" data-i18n="products.apply"></button>
+      <button id="filter-reset" class="text-gray-600 hover:text-rose-600 text-xs font-bold uppercase tracking-widest px-5 py-2.5 border border-gray-300 transition-colors" data-i18n="products.reset"></button>
+    </div>
+
+    <div id="products-status" class="text-center text-gray-400 py-6" data-i18n="products.loading"></div>
+    <div id="products-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6"></div>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

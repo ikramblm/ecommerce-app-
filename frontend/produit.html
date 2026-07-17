@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produit — Doudis Beauty</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3a89c'/%3E%3Cstop offset='45%25' stop-color='%23c97b6d'/%3E%3Cstop offset='100%25' stop-color='%23a8554a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='white' text-anchor='middle'%3Ed%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/produit.js"></script>
+</head>
+<body class="bg-rose-50 text-gray-800">
+  <div id="header"></div>
+
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <a href="/produits.html" class="text-gray-600 hover:text-rose-600 text-xs font-bold uppercase tracking-widest" data-i18n="product.backToProducts"></a>
+
+    <div id="product-detail" class="mt-6 grid md:grid-cols-2 gap-10"></div>
+  </main>
+
+  <!-- Order modal -->
+  <div id="order-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-start md:items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white w-full max-w-lg my-8">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <h2 class="font-extrabold uppercase tracking-widest text-sm text-gray-900" data-i18n="orderForm.title"></h2>
+        <button id="order-modal-close" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+      </div>
+
+      <form id="order-form" class="px-6 py-5 space-y-4">
+        <div id="order-product-summary" class="bg-rose-50 p-3 text-sm"></div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.quantity"></label>
+          <input type="number" name="quantity" min="1" value="1" required class="w-24 border border-gray-300 px-3 py-2 text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.fullName"></label>
+          <input type="text" name="customer_name" required minlength="2" class="w-full border border-gray-300 px-3 py-2 text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.phone"></label>
+          <input type="tel" name="customer_phone" required placeholder="05XXXXXXXX" dir="ltr"
+                 class="w-full border border-gray-300 px-3 py-2 text-sm" />
+          <p class="text-[11px] text-gray-400 mt-1" data-i18n="orderForm.phoneHint"></p>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.email"></label>
+          <input type="email" name="customer_email" required class="w-full border border-gray-300 px-3 py-2 text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.wilaya"></label>
+          <select name="wilaya" id="wilaya-select" required class="w-full border border-gray-300 px-3 py-2 text-sm"></select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.address"></label>
+          <textarea name="address" required minlength="5" rows="2" class="w-full border border-gray-300 px-3 py-2 text-sm"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.paymentType"></label>
+          <select name="payment_type" required class="w-full border border-gray-300 px-3 py-2 text-sm">
+            <option value="cod" data-i18n="orderForm.paymentCod"></option>
+            <option value="bank_transfer" data-i18n="orderForm.paymentBank"></option>
+            <option value="ccp" data-i18n="orderForm.paymentCcp"></option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1" data-i18n="orderForm.deliveryType"></label>
+          <select name="delivery_type" required class="w-full border border-gray-300 px-3 py-2 text-sm">
+            <option value="home" data-i18n="orderForm.deliveryHome"></option>
+            <option value="pickup" data-i18n="orderForm.deliveryPickup"></option>
+          </select>
+        </div>
+
+        <div id="order-error" class="hidden text-red-600 text-sm"></div>
+
+        <button type="submit" id="order-submit-btn"
+                class="w-full bg-gray-900 hover:bg-rose-600 text-white font-bold uppercase tracking-widest text-xs py-3.5 transition-colors"
+                data-i18n="orderForm.submit"></button>
+      </form>
+
+      <div id="order-success" class="hidden px-6 py-10 text-center">
+        <div class="text-5xl mb-4">🎉</div>
+        <p class="text-gray-700 font-medium" data-i18n="orderForm.success"></p>
+        <button id="order-success-close" class="mt-6 bg-gray-900 hover:bg-rose-600 text-white font-bold uppercase tracking-widest text-xs px-6 py-3 transition-colors" data-i18n="orderForm.close"></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+</body>
+</html>

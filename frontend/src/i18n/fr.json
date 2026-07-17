@@ -1,0 +1,142 @@
+{
+  "brand": "Doudis Beauty",
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact",
+    "admin": "Espace admin"
+  },
+  "hero": {
+    "title": "Révélez votre éclat naturel",
+    "subtitle": "Maquillage et soins de qualité, livrés partout en Algérie.",
+    "cta": "Découvrir les produits"
+  },
+  "featured": {
+    "title": "Produits en vedette",
+    "subtitle": "Notre sélection du moment"
+  },
+  "features": {
+    "original": { "title": "Produits 100% originaux", "desc": "Tous nos produits sont authentiques, jamais de contrefaçon." },
+    "delivery": { "title": "Livraison rapide", "desc": "Livraison dans les 58 wilayas sous 1 à 5 jours." },
+    "cod": { "title": "Paiement à la livraison", "desc": "Payez en toute confiance à la réception de votre commande." },
+    "pickup": { "title": "Point relais", "desc": "Récupérez votre colis dans une agence de livraison partenaire près de chez vous." }
+  },
+  "categories": {
+    "title": "Catégories",
+    "makeupDesc": "Rouges à lèvres, fonds de teint, palettes et plus",
+    "skincareDesc": "Crèmes, sérums et soins du visage"
+  },
+  "products": {
+    "title": "Nos produits",
+    "filterCategory": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "categoryMakeup": "Maquillage",
+    "categorySkincare": "Soins",
+    "filterPrice": "Prix",
+    "minPrice": "Prix min",
+    "maxPrice": "Prix max",
+    "apply": "Filtrer",
+    "reset": "Réinitialiser",
+    "empty": "Aucun produit trouvé.",
+    "loading": "Chargement des produits...",
+    "viewDetails": "Voir le produit",
+    "da": "DA"
+  },
+  "product": {
+    "category": "Catégorie",
+    "price": "Prix",
+    "requestButton": "Demander ce produit",
+    "description": "Description",
+    "backToProducts": "Retour aux produits",
+    "outOfStock": "Rupture de stock"
+  },
+  "orderForm": {
+    "title": "Demande de commande",
+    "productSummary": "Produit commandé",
+    "quantity": "Quantité",
+    "fullName": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "phoneHint": "Format algérien : 05/06/07 suivi de 8 chiffres",
+    "email": "Email",
+    "wilaya": "Wilaya",
+    "chooseWilaya": "Choisir une wilaya",
+    "address": "Adresse complète",
+    "paymentType": "Type de paiement",
+    "paymentCod": "Paiement à la livraison (COD)",
+    "paymentBank": "Virement bancaire",
+    "paymentCcp": "CCP",
+    "deliveryType": "Type de livraison",
+    "deliveryHome": "Livraison à domicile",
+    "deliveryPickup": "Retrait au point de vente",
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi en cours...",
+    "success": "Merci, votre demande a été envoyée. Nous vous contacterons bientôt.",
+    "errorGeneric": "Une erreur est survenue. Veuillez réessayer.",
+    "close": "Fermer"
+  },
+  "errors": {
+    "required": "Ce champ est requis.",
+    "invalidEmail": "Adresse email invalide.",
+    "invalidPhone": "Numéro de téléphone algérien invalide.",
+    "minLength": "Ce champ est trop court."
+  },
+  "footer": {
+    "tagline": "Votre beauté, notre passion.",
+    "location": "Boutique 100% en ligne — Livraison partout en Algérie",
+    "rights": "Tous droits réservés.",
+    "contactTitle": "Contact"
+  },
+  "admin": {
+    "loginTitle": "Connexion administrateur",
+    "email": "Email",
+    "password": "Mot de passe",
+    "login": "Se connecter",
+    "loginError": "Email ou mot de passe incorrect.",
+    "dashboard": "Tableau de bord",
+    "logout": "Déconnexion",
+    "tabProducts": "Produits",
+    "tabOrders": "Demandes de commande",
+    "addProduct": "Ajouter un produit",
+    "editProduct": "Modifier le produit",
+    "deleteProduct": "Supprimer",
+    "confirmDelete": "Confirmer la suppression de ce produit ?",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "titleFr": "Titre (Français)",
+    "titleEn": "Titre (Anglais)",
+    "titleAr": "Titre (Arabe)",
+    "descFr": "Description (Français)",
+    "descEn": "Description (Anglais)",
+    "descAr": "Description (Arabe)",
+    "price": "Prix (DA)",
+    "category": "Catégorie",
+    "image": "Image du produit",
+    "featured": "Produit en vedette",
+    "stock": "Statut du stock",
+    "inStock": "En stock",
+    "outOfStock": "Rupture de stock",
+    "ordersTable": {
+      "name": "Nom",
+      "phone": "Téléphone",
+      "email": "Email",
+      "wilaya": "Wilaya",
+      "address": "Adresse",
+      "payment": "Paiement",
+      "delivery": "Livraison",
+      "product": "Produit",
+      "date": "Date",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "status": {
+      "pending": "En attente",
+      "processed": "Traitée",
+      "cancelled": "Annulée"
+    },
+    "markProcessed": "Marquer comme traitée",
+    "markCancelled": "Marquer comme annulée",
+    "noProducts": "Aucun produit pour le moment.",
+    "noOrders": "Aucune demande pour le moment."
+  }
+}
